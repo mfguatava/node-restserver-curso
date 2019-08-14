@@ -11,8 +11,8 @@ const mongoose = require('mongoose');
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-//Importamos las rutas de usuario
-app.use(require('./routes/usuario'));
+//Importamos las rutas desde el archivo index
+app.use(require('./routes/index'));
 
 
 app.get('/', function (req, res) {
@@ -25,7 +25,7 @@ mongoose.connect(process.env.URLDB,
     (err, res)=> {
     if (err ) throw err;
 
-    console.log('Base de datos onlinea');
+    console.log('Database online');
 });
  
 app.listen(process.env.PORT, () =>{
